@@ -282,7 +282,7 @@ export default function ChatLayout() {
     setMessages((m) => [...m, { role: "assistant", content: "" }]);
     const controller = new AbortController();
     abortRef.current = controller;
-    setStreaming(true;
+    setStreaming(true);
     
     try {
       const res = await fetch(`${API_BASE}/api/chats/${chatId}/messages/${msg.id}/regenerate`, { 
@@ -396,7 +396,7 @@ export default function ChatLayout() {
     if (name === "teal") return "radial-gradient(800px 240px at 50% -80px, rgba(5,171,179,0.25), transparent), linear-gradient(180deg, transparent 0, transparent 220px, hsl(var(--background)) 220px)";
     if (name === "ocean") return "radial-gradient(600px 200px at 10% -60px, rgba(38,148,156,0.35), transparent), radial-gradient(600px 200px at 90% -60px, rgba(5,171,179,0.25), transparent)";
     if (name === "charcoal") return "linear-gradient(180deg, rgba(59,65,73,0.25), transparent 220px)";
-    return "";
+    return "hsl(var(--background))"; // Use CSS background color as fallback
   }
   
   function stop() {
