@@ -1,0 +1,85 @@
+{
+  "chats": [
+    {
+      "id": "21f108fabc1fb04d1353fbe5",
+      "title": "what features do you have as a model?",
+      "model": "google/gemma-3-12b",
+      "createdAt": "2025-09-17T05:11:48.922Z",
+      "updatedAt": "2025-09-17T07:42:00.246Z",
+      "folder": "Naves",
+      "pinned": false
+    },
+    {
+      "id": "2ee09df516d056e4d405417b",
+      "title": "Apple Tree And A Young Girl",
+      "model": "google/gemma-3-12b",
+      "createdAt": "2025-09-17T07:42:20.969Z",
+      "updatedAt": "2025-09-17T07:44:34.316Z",
+      "folder": "",
+      "pinned": false
+    },
+    {
+      "id": "8bfff02341578039c3d12e4e",
+      "title": "Three Line Story Example",
+      "model": "google/gemma-3-12b",
+      "createdAt": "2025-09-17T07:57:44.466Z",
+      "updatedAt": "2025-09-17T07:58:13.526Z",
+      "folder": "",
+      "pinned": false
+    },
+    {
+      "id": "15ada54d5f28995035bf98f4",
+      "title": "Introduction To Large Language Model",
+      "model": "gemma-3-12b",
+      "createdAt": "2025-09-17T09:44:45.464Z",
+      "updatedAt": "2025-09-17T09:54:12.135Z",
+      "folder": "",
+      "pinned": false
+    },
+    {
+      "id": "d29ac29a02ef047771b2270f",
+      "title": "Creating Folders With The CLI",
+      "model": "gemma-3-12b",
+      "createdAt": "2025-09-17T09:53:32.853Z",
+      "updatedAt": "2025-09-17T10:00:03.334Z",
+      "folder": "",
+      "pinned": false
+    },
+    {
+      "id": "ceb92da32812637d7857b0ea",
+      "title": "Hello, what is your name?",
+      "model": "gemma-3-12b",
+      "createdAt": "2025-09-17T09:59:07.884Z",
+      "updatedAt": "2025-09-17T10:09:36.895Z",
+      "folder": "",
+      "pinned": false
+    },
+    {
+      "id": "d0553579ba1563f866ff9d46",
+      "title": "what is your name?",
+      "model": "gemma-3-12b",
+      "createdAt": "2025-09-17T10:10:17.707Z",
+      "updatedAt": "2025-09-17T10:14:56.486Z",
+      "folder": "",
+      "pinned": false
+    },
+    {
+      "id": "0750c3dfc32ab9e84cdd3f0f",
+      "title": "what is your name?",
+      "model": "gemma-3-12b",
+      "createdAt": "2025-09-17T10:14:57.452Z",
+      "updatedAt": "2025-09-17T10:23:52.840Z",
+      "folder": "",
+      "pinned": false
+    },
+    {
+      "id": "c371cd1fe5e454a0baaab67e",
+      "title": "what is your name?",
+      "model": "gemma-3-12b",
+      "createdAt": "2025-09-17T10:20:05.534Z",
+      "updatedAt": "2025-09-17T10:21:27.150Z",
+      "folder": "",
+      "pinned": false
+    }
+  ]
+}

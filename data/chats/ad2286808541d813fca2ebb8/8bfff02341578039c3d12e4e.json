@@ -1,0 +1,33 @@
+{
+  "id": "8bfff02341578039c3d12e4e",
+  "title": "Three Line Story Example",
+  "model": "google/gemma-3-12b",
+  "system": "",
+  "folder": "",
+  "pinned": false,
+  "createdAt": "2025-09-17T07:57:44.466Z",
+  "updatedAt": "2025-09-17T07:58:13.526Z",
+  "messages": [
+    {
+      "id": "0f275aacde910cf9d8c13ccc",
+      "role": "user",
+      "content": "write 3 line story",
+      "ts": "2025-09-17T07:58:03.013Z"
+    },
+    {
+      "id": "6f2d5f3872a83c6eb48b4aef",
+      "role": "assistant",
+      "content": "The old lighthouse keeper polished the lens, a familiar ritual against the rising storm. A single, frantic message crackled over his radio: \"Ship in distress - coordinates...\" He looked out at the churning sea, knowing he was their only hope.",
+      "model": "google/gemma-3-12b",
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": 61,
+        "total_tokens": 61,
+        "tps_est": 6.771758436944938,
+        "ttfb_ms": 1168,
+        "latency_ms": 9008
+      },
+      "ts": "2025-09-17T07:58:12.035Z"
+    }
+  ]
+}

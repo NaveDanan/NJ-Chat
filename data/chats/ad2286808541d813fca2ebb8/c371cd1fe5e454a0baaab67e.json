@@ -1,0 +1,54 @@
+{
+  "id": "c371cd1fe5e454a0baaab67e",
+  "title": "what is your name?",
+  "model": "gemma-3-12b",
+  "system": "",
+  "folder": "",
+  "pinned": false,
+  "createdAt": "2025-09-17T10:20:05.534Z",
+  "updatedAt": "2025-09-17T10:21:27.150Z",
+  "messages": [
+    {
+      "id": "8a2dba0376160679678e8fe4",
+      "role": "user",
+      "content": "what is your name?",
+      "ts": "2025-09-17T10:20:15.128Z"
+    },
+    {
+      "id": "cfef9ccdaf725ecebbbdce95",
+      "role": "assistant",
+      "content": "I’m ChatGPT—your AI assistant! How can I help you today?",
+      "model": "openai/gpt-oss-20b",
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": 14,
+        "total_tokens": 14,
+        "tps_est": 0.41773587157605774,
+        "ttfb_ms": 33296,
+        "latency_ms": 33514
+      },
+      "ts": "2025-09-17T10:21:15.833Z"
+    },
+    {
+      "id": "43ce3b0ac4ed19b867fff33e",
+      "role": "user",
+      "content": "what is your name?",
+      "ts": "2025-09-17T10:21:22.447Z"
+    },
+    {
+      "id": "87779104f25e6f7fbb43aa3e",
+      "role": "assistant",
+      "content": "I'm ChatGPT, an AI language model created by OpenAI.",
+      "model": "openai/gpt-oss-20b",
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": 13,
+        "total_tokens": 13,
+        "tps_est": 2.7754056362083688,
+        "ttfb_ms": 4678,
+        "latency_ms": 4684
+      },
+      "ts": "2025-09-17T10:21:27.150Z"
+    }
+  ]
+}

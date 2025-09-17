@@ -1,0 +1,84 @@
+{
+  "id": "0750c3dfc32ab9e84cdd3f0f",
+  "title": "what is your name?",
+  "model": "gemma-3-12b",
+  "system": "",
+  "folder": "",
+  "pinned": false,
+  "createdAt": "2025-09-17T10:14:57.452Z",
+  "updatedAt": "2025-09-17T10:23:52.840Z",
+  "messages": [
+    {
+      "id": "8921ef232c79d8653fed0e52",
+      "role": "user",
+      "content": "what is your name?",
+      "ts": "2025-09-17T10:15:10.510Z"
+    },
+    {
+      "id": "440270aafe9f2a55c94f9a97",
+      "role": "assistant",
+      "content": "\n\nMy name is Qwen. How can I assist you today?",
+      "model": "qwen/qwen3-14b",
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": 12,
+        "total_tokens": 12,
+        "tps_est": 0.2885517108711857,
+        "ttfb_ms": 39180,
+        "latency_ms": 41587
+      },
+      "ts": "2025-09-17T10:15:52.109Z"
+    },
+    {
+      "id": "cb483a6afb7806f150fbdc17",
+      "role": "assistant",
+      "content": "\n\nMy name is **Qwen**, and I'm a large language model developed by Alibaba Cloud. You can also call me **Tongyi Qianwen**. How can I assist you today? 😊",
+      "model": "gemma-3-12b",
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": 38,
+        "total_tokens": 38,
+        "tps_est": 1.0151199444355399,
+        "ttfb_ms": 28053,
+        "latency_ms": 37434
+      },
+      "ts": "2025-09-17T10:19:24.879Z"
+    },
+    {
+      "id": "43de8b9a021b5b76ef7d6a28",
+      "role": "assistant",
+      "content": "I’m ChatGPT—your AI assistant! How can I help you today?",
+      "model": "gemma-3-12b",
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": 14,
+        "total_tokens": 14,
+        "tps_est": 4.567699836867863,
+        "ttfb_ms": 2869,
+        "latency_ms": 3065
+      },
+      "ts": "2025-09-17T10:22:03.132Z"
+    },
+    {
+      "id": "a1d4221a368bd3f04f182eb2",
+      "role": "user",
+      "content": "what is your name",
+      "ts": "2025-09-17T10:22:29.761Z"
+    },
+    {
+      "id": "688adc82c7f0ce53b1216e47",
+      "role": "assistant",
+      "content": "\n\nMy name is **Qwen**, and I'm a large language model developed by Alibaba Cloud. You can also call me **Tongyi Qianwen**. How can I assist you today? 😊",
+      "model": "qwen/qwen3-14b",
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": 38,
+        "total_tokens": 38,
+        "tps_est": 0.5120741699008193,
+        "ttfb_ms": 64874,
+        "latency_ms": 74208
+      },
+      "ts": "2025-09-17T10:23:52.840Z"
+    }
+  ]
+}

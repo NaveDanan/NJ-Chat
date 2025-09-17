@@ -1,0 +1,78 @@
+{
+  "id": "ceb92da32812637d7857b0ea",
+  "title": "Hello, what is your name?",
+  "model": "gemma-3-12b",
+  "system": "",
+  "folder": "",
+  "pinned": false,
+  "createdAt": "2025-09-17T09:59:07.884Z",
+  "updatedAt": "2025-09-17T10:09:36.895Z",
+  "messages": [
+    {
+      "id": "877886cf6dcfe6a0b3ee9e43",
+      "role": "user",
+      "content": "Hello, what is your name?",
+      "ts": "2025-09-17T10:00:03.010Z"
+    },
+    {
+      "id": "a844aba2e6ffb16319c63b49",
+      "role": "assistant",
+      "content": "\n\nHello! My name is Qwen, and I'm a large language model developed by Alibaba Cloud. I can help you with answering questions, creating content, and having conversations on various topics. How can I assist you today?",
+      "model": "qwen/qwen3-14b",
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": 54,
+        "total_tokens": 54,
+        "tps_est": 1.5142592748380583,
+        "ttfb_ms": 25470,
+        "latency_ms": 35661
+      },
+      "ts": "2025-09-17T10:00:54.492Z"
+    },
+    {
+      "id": "58144a7679758b6e0f54723c",
+      "role": "assistant",
+      "content": "\n\nHello! My name is Qwen, and I'm a large language model developed by Alibaba Cloud. How can I assist you today? 😊",
+      "model": "gemma-3-12b",
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": 29,
+        "total_tokens": 29,
+        "tps_est": 0.40918839598148776,
+        "ttfb_ms": 64445,
+        "latency_ms": 70872
+      },
+      "ts": "2025-09-17T10:07:06.754Z"
+    },
+    {
+      "id": "95a6152b3f5d00b85e89fdc3",
+      "role": "assistant",
+      "content": "\n\nHello! My name is Qwen, a large language model developed by Alibaba Cloud. I can help you with various tasks such as answering questions, creating content, and more. How can I assist you today?",
+      "model": "gemma-3-12b",
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": 49,
+        "total_tokens": 49,
+        "tps_est": 0.9635426908404452,
+        "ttfb_ms": 41606,
+        "latency_ms": 50854
+      },
+      "ts": "2025-09-17T10:09:09.765Z"
+    },
+    {
+      "id": "7db88cb36b94d6191313d1b7",
+      "role": "assistant",
+      "content": "\n\nHello! My name is Qwen. 😊 How can I assist you today? Whether it's answering questions, creating content, or just having a chat, I'm here to help!",
+      "model": "gemma-3-12b",
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": 37,
+        "total_tokens": 37,
+        "tps_est": 1.3768466490529527,
+        "ttfb_ms": 18294,
+        "latency_ms": 26873
+      },
+      "ts": "2025-09-17T10:09:36.895Z"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "users": [
+    {
+      "id": "ad2286808541d813fca2ebb8",
+      "email": "nave0712@gmail.com",
+      "passwordHash": "35b3833949f35d9c807213bae453fbce68b861bc356a9d23951906d6be1a59c4",
+      "salt": "4606ed7fd5d482d7c394cf1be8f435e5",
+      "createdAt": "2025-09-16T13:53:10.709Z",
+      "settings": {
+        "provider": "openai",
+        "baseUrl": "http://localhost:1234",
+        "apiKey": "lm-studio",
+        "model": "gemma-3-12b",
+        "temperature": 0.7,
+        "max_tokens": 4096,
+        "theme": "system",
+        "gradient": "ocean"
+      }
+    },
+    {
+      "id": "8f802f678988f65bc4eadecc",
+      "email": "naved@gmail.com",
+      "passwordHash": "254d471b88a2841a0863653bf60b5e7ca4d05c845370d027dabc9929e8f9dc64",
+      "salt": "3ffc88df66e38a4b61cb9a44ae477ac8",
+      "createdAt": "2025-09-17T06:36:30.595Z",
+      "settings": {
+        "provider": "openai",
+        "baseUrl": "http://localhost:1234",
+        "apiKey": "lm-studio",
+        "model": "",
+        "temperature": 0.7,
+        "max_tokens": 512,
+        "system": "",
+        "theme": "system"
+      }
+    }
+  ]
+}

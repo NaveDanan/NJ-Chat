@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Palette */
+  --charcoal: 214 11% 26%;   /* #3B4149 */
+  --platinum: 240 2% 91%;    /* #E8E8E9 */
+  --verdigris: 183 95% 36%;  /* #05ABB3 */
+  --dark-cyan: 184 61% 38%;  /* #26949C */
+
+  /* Dark (default) */
+  --background: 214 11% 20%;      /* darker charcoal */
+  --foreground: var(--platinum);
+  --card: 214 11% 24%;
+  --card-foreground: var(--platinum);
+  --popover: 214 11% 24%;
+  --popover-foreground: var(--platinum);
+  --primary: var(--verdigris);
+  --primary-foreground: 214 11% 20%;
+  --secondary: 214 11% 18%;
+  --secondary-foreground: var(--platinum);
+  --muted: 214 8% 70%;
+  --muted-foreground: 214 8% 70%;
+  --accent: var(--dark-cyan);
+  --accent-foreground: var(--platinum);
+  --destructive: 0 84% 60%;
+  --destructive-foreground: var(--platinum);
+  --border: 214 11% 18%;
+  --input: 214 11% 18%;
+  --ring: var(--verdigris);
+  --radius: 0.7rem;
+}
+
+.light {
+  --background: var(--platinum);
+  --foreground: 214 11% 18%;
+  --card: 0 0% 100%;
+  --card-foreground: 214 11% 18%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 214 11% 18%;
+  --primary: var(--verdigris);
+  --primary-foreground: 214 11% 18%;
+  --secondary: 210 40% 96%;
+  --secondary-foreground: 214 11% 18%;
+  --muted: 210 40% 96%;
+  --muted-foreground: 214 10% 42%;
+  --accent: var(--dark-cyan);
+  --accent-foreground: 214 11% 18%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 214 20% 88%;
+  --input: 214 20% 88%;
+  --ring: var(--verdigris);
+}
+
+html, body {
+  height: 100%;
+}
+body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+}
+
+.container {
+  @apply mx-auto max-w-screen-2xl px-4;
+}
+
+/* Markdown (prose) styling */
+.md {
+  --tw-prose-body: hsl(var(--foreground));
+  --tw-prose-headings: hsl(var(--foreground));
+  --tw-prose-links: hsl(var(--primary));
+  --tw-prose-bold: hsl(var(--foreground));
+  --tw-prose-counters: hsl(var(--muted-foreground));
+  --tw-prose-bullets: hsl(var(--muted-foreground));
+  --tw-prose-hr: hsl(var(--border));
+  --tw-prose-quotes: hsl(var(--foreground));
+  --tw-prose-quote-borders: hsl(var(--border));
+  --tw-prose-captions: hsl(var(--muted-foreground));
+  --tw-prose-code: hsl(var(--foreground));
+  --tw-prose-th-borders: hsl(var(--border));
+  --tw-prose-td-borders: hsl(var(--border));
+  font-size: 16px;
+  line-height: 1.75;
+}
+.md :where(h1){font-size:1.8rem;line-height:1.25;margin:0.8rem 0 0.5rem}
+.md :where(h2){font-size:1.45rem;line-height:1.3;margin:0.7rem 0 0.45rem}
+.md :where(h3){font-size:1.22rem;line-height:1.35;margin:0.6rem 0 0.4rem}
+.md :where(p){margin:0.6rem 0}
+.md :where(ul,ol){margin:0.6rem 0 0.6rem 1.4rem}
+.md :where(li){margin:0.25rem 0}
+.md :where(blockquote){border-left:3px solid hsl(var(--border));padding-left:10px;margin:0.6rem 0;color:hsl(var(--muted-foreground))}
+.md :where(hr){border:none;height:1px;background:hsl(var(--border));margin:1rem 0}
+.md :where(a){color:hsl(var(--primary));text-decoration:underline}
+.md :where(table){width:100%;border-collapse:collapse;margin:0.8rem 0;border:1px solid hsl(var(--border));border-radius:8px;overflow:hidden}
+.md :where(th,td){border-bottom:1px solid hsl(var(--border));padding:10px 12px;text-align:left}
+.md :where(thead th){background:hsl(var(--secondary));}
+.md :where(code){background:hsl(var(--secondary));padding:0.15em 0.35em;border-radius:6px}
+.md pre code{background:transparent}
+
+/* Monospace font stacks */
+.md code, .md pre, code, kbd, samp { font-family: "Fira Code", "Fira Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace; }
+.message-meta { font-family: "Fira Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace; }
+
+/* Highlight.js override */
+.md pre code.hljs{background:transparent;color:inherit}
+
+/* Bigger message text on desktop */
+@media (min-width: 900px){
+  .md{font-size:16.5px}
+}
