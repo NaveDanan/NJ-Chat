@@ -33,7 +33,8 @@ export default function ChatLayout() {
   const resizerRef = useRef<HTMLDivElement | null>(null);
   const [thinking, setThinking] = useState<string>("");
   const [thinkingStartTime, setThinkingStartTime] = useState<number | null>(null);
-  const [thinkingExpanded, setThinkingExpanded] = useState<boolean>(true);
+  const thinkingRef = useRef<string>("");
+  const thinkingStartRef = useRef<number | null>(null);
   const [gradient, setGradient] = useState<string>("none");
   const [showSystem, setShowSystem] = useState(false);
   const [systemText, setSystemText] = useState("");
@@ -143,6 +144,8 @@ export default function ChatLayout() {
     setContent("");
     setThinking("");
     setThinkingStartTime(null);
+    thinkingRef.current = "";
+    thinkingStartRef.current = null;
     setMessages((m) => [...m, { role: "user", content: text }]);
     setTimeout(scrollToBottom);
 
@@ -191,36 +194,48 @@ export default function ChatLayout() {
                 return copy;
               });
             } else if (eventName === "thinking") {
-              if (!thinkingStartTime) setThinkingStartTime(Date.now());
-              const newThinking = thinking + (payload.content || "");
-              setThinking(newThinking);
-              // Update the current assistant message with thinking content
-              setMessages((m) => {
-                const copy = m.slice();
-                const last = copy.length - 1;
-                if (copy[last] && copy[last].role === "assistant") {
-                  copy[last] = { ...copy[last], thinking: newThinking } as any;
-                }
-                return copy;
-              });
+              if (!thinkingStartRef.current) {
+                const start = Date.now();
+                thinkingStartRef.current = start;
+                setThinkingStartTime(start);
+              }
+              const chunk = payload.content || "";
+              if (chunk) {
+                const newThinking = (thinkingRef.current || "") + chunk;
+                thinkingRef.current = newThinking;
+                setThinking(newThinking);
+                // Update the current assistant message with thinking content
+                setMessages((m) => {
+                  const copy = m.slice();
+                  const last = copy.length - 1;
+                  if (copy[last] && copy[last].role === "assistant") {
+                    copy[last] = { ...copy[last], thinking: newThinking } as any;
+                  }
+                  return copy;
+                });
+              }
             } else if (eventName === "final") {
-              const thinkingTime = thinkingStartTime ? (Date.now() - thinkingStartTime) / 1000 : undefined;
+              const start = thinkingStartRef.current;
+              const thinkingTime = start ? (Date.now() - start) / 1000 : undefined;
+              const latestThinking = thinkingRef.current;
               setMessages((m) => {
                 const copy = m.slice();
                 const last = copy.length - 1;
                 if (copy[last]) {
-                  copy[last] = { 
-                    ...copy[last], 
-                    id: payload.messageId || copy[last]?.id, 
-                    model: payload.model, 
-                    usage: payload.usage, 
+                  copy[last] = {
+                    ...copy[last],
+                    id: payload.messageId || copy[last]?.id,
+                    model: payload.model,
+                    usage: payload.usage,
                     latencyMs: payload.latencyMs,
-                    thinking: thinking || undefined,
+                    thinking: latestThinking || undefined,
                     thinkingTime: thinkingTime
                   } as any;
                 }
                 return copy;
               });
+              thinkingRef.current = "";
+              thinkingStartRef.current = null;
               setThinking("");
               setThinkingStartTime(null);
             } else if (eventName === "error") {
@@ -232,7 +247,10 @@ export default function ChatLayout() {
                 }
                 return copy;
               });
+              thinkingRef.current = "";
+              thinkingStartRef.current = null;
               setThinking("");
+              setThinkingStartTime(null);
             }
           } catch {}
         }
@@ -276,6 +294,10 @@ export default function ChatLayout() {
         }
         return copy;
       });
+      thinkingRef.current = "";
+      thinkingStartRef.current = null;
+      setThinking("");
+      setThinkingStartTime(null);
     } finally {
       setStreaming(false);
       abortRef.current = null;
@@ -288,6 +310,8 @@ export default function ChatLayout() {
     if (!chatId || !msg.id || streaming) return;
     setThinking("");
     setThinkingStartTime(null);
+    thinkingRef.current = "";
+    thinkingStartRef.current = null;
     
     // Remove the last assistant message (previous LLM response) before regenerating
     setMessages((m) => {
@@ -325,36 +349,48 @@ export default function ChatLayout() {
                 return copy;
               });
             } else if (eventName === "thinking") {
-              if (!thinkingStartTime) setThinkingStartTime(Date.now());
-              const newThinking = thinking + (payload.content || "");
-              setThinking(newThinking);
-              // Update the current assistant message with thinking content
-              setMessages((m) => {
-                const copy = m.slice();
-                const last = copy.length - 1;
-                if (copy[last] && copy[last].role === "assistant") {
-                  copy[last] = { ...copy[last], thinking: newThinking } as any;
-                }
-                return copy;
-              });
+              if (!thinkingStartRef.current) {
+                const start = Date.now();
+                thinkingStartRef.current = start;
+                setThinkingStartTime(start);
+              }
+              const chunk = payload.content || "";
+              if (chunk) {
+                const newThinking = (thinkingRef.current || "") + chunk;
+                thinkingRef.current = newThinking;
+                setThinking(newThinking);
+                // Update the current assistant message with thinking content
+                setMessages((m) => {
+                  const copy = m.slice();
+                  const last = copy.length - 1;
+                  if (copy[last] && copy[last].role === "assistant") {
+                    copy[last] = { ...copy[last], thinking: newThinking } as any;
+                  }
+                  return copy;
+                });
+              }
             } else if (eventName === "final") {
-              const thinkingTime = thinkingStartTime ? (Date.now() - thinkingStartTime) / 1000 : undefined;
+              const start = thinkingStartRef.current;
+              const thinkingTime = start ? (Date.now() - start) / 1000 : undefined;
+              const latestThinking = thinkingRef.current;
               setMessages((m) => {
                 const copy = m.slice();
                 const last = copy.length - 1;
                 if (copy[last]) {
-                  copy[last] = { 
-                    ...copy[last], 
-                    id: payload.messageId || copy[last]?.id, 
-                    model: payload.model, 
-                    usage: payload.usage, 
+                  copy[last] = {
+                    ...copy[last],
+                    id: payload.messageId || copy[last]?.id,
+                    model: payload.model,
+                    usage: payload.usage,
                     latencyMs: payload.latencyMs,
-                    thinking: thinking || undefined,
+                    thinking: latestThinking || undefined,
                     thinkingTime: thinkingTime
                   } as any;
                 }
                 return copy;
               });
+              thinkingRef.current = "";
+              thinkingStartRef.current = null;
               setThinking("");
               setThinkingStartTime(null);
             } else if (eventName === "error") {
@@ -366,7 +402,10 @@ export default function ChatLayout() {
                 }
                 return copy;
               });
+              thinkingRef.current = "";
+              thinkingStartRef.current = null;
               setThinking("");
+              setThinkingStartTime(null);
             }
           } catch {}
         }
@@ -422,10 +461,10 @@ export default function ChatLayout() {
   }
 
   return (
-    <div className="grid h-screen grid-cols-1 md:grid-cols-[var(--sidebar)_1fr]" style={{ ['--sidebar' as any]: `${collapsed ? 64 : sidebarW}px` }}>
+    <div className="grid h-screen min-h-0 grid-cols-1 md:grid-cols-[var(--sidebar)_1fr]" style={{ ['--sidebar' as any]: `${collapsed ? 64 : sidebarW}px` }}>
       {/* Sidebar */}
-      <aside className="hidden border-r border-border bg-secondary/30 md:flex md:flex-col">
-        <div className="flex items-center gap-2 border-b border-border px-3 py-3">
+      <aside className="hidden min-h-0 border-r border-border bg-secondary/30 md:flex md:flex-col">
+        <div className="flex shrink-0 items-center gap-2 border-b border-border px-3 py-3">
           {/* with logo image next to title */}
           {!collapsed && (
             <>
@@ -438,10 +477,10 @@ export default function ChatLayout() {
               {collapsed ? <ChevronsRight className="h-4 w-4" /> : <ChevronsLeft className="h-4 w-4" />}
             </Button>
             {!collapsed && <ThemeToggle />}
-            
+
           </div>
         </div>
-        <div className="flex items-center gap-2 p-3">
+        <div className="flex shrink-0 items-center gap-2 p-3">
           {collapsed ? (
             <Button size="icon" className="mx-auto" onClick={newChat}><Plus className="h-4 w-4" /></Button>
           ) : (
@@ -449,12 +488,13 @@ export default function ChatLayout() {
           )}
         </div>
         {!collapsed && (
-          <div className="mx-2 mb-2 flex items-center gap-2 rounded-md border border-border bg-background px-2 py-1 text-sm text-muted-foreground">
+          <div className="mx-2 mb-2 flex shrink-0 items-center gap-2 rounded-md border border-border bg-background px-2 py-1 text-sm text-muted-foreground">
             <Search className="h-4 w-4" />
             <input className="w-full bg-transparent outline-none" placeholder="Search chats" />
           </div>
         )}
-        <div className="flex-1 overflow-auto p-2">
+        
+        <div className="flex-1 min-h-0 overflow-y-auto p-2">
           {Object.entries(
             chats.reduce((acc: Record<string, ChatMeta[]>, c) => {
               const f = (c.folder || "").trim();
@@ -504,11 +544,11 @@ export default function ChatLayout() {
           })}
         </div>
         {!collapsed && (
-          <div className="relative">
+          <div className="relative shrink-0">
             <div ref={resizerRef} className="absolute -right-1 top-0 h-8 w-2 cursor-col-resize rounded bg-transparent hover:bg-primary/60" title="Drag to resize" />
           </div>
         )}
-        <div className="border-t border-border p-3 text-xs text-muted-foreground">
+        <div className="shrink-0 border-t border-border p-3 text-xs text-muted-foreground">
           {!collapsed && me?.user?.email}
           {/* align the button to the right next to the email */}
           <div className="ml-auto">

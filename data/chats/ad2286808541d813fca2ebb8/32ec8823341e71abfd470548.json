@@ -1,0 +1,54 @@
+{
+  "id": "32ec8823341e71abfd470548",
+  "title": "hello",
+  "model": "gemma-3-12b",
+  "system": "",
+  "folder": "",
+  "pinned": false,
+  "createdAt": "2025-09-17T11:05:55.733Z",
+  "updatedAt": "2025-09-17T11:08:38.225Z",
+  "messages": [
+    {
+      "id": "be59947dd41783855946611a",
+      "role": "user",
+      "content": "hello",
+      "ts": "2025-09-17T11:06:04.587Z"
+    },
+    {
+      "id": "ee50566a393568ea004202fe",
+      "role": "assistant",
+      "content": "\n\nHello! How can I assist you today? 😊",
+      "model": "qwen/qwen3-14b",
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": 10,
+        "total_tokens": 10,
+        "tps_est": 0.20868549009787352,
+        "ttfb_ms": 45967,
+        "latency_ms": 47919
+      },
+      "ts": "2025-09-17T11:06:52.528Z"
+    },
+    {
+      "id": "ce03552346a8f0fed10542e2",
+      "role": "user",
+      "content": "I'm good and you?",
+      "ts": "2025-09-17T11:07:43.809Z"
+    },
+    {
+      "id": "0fb69747817ea96dbdc7e842",
+      "role": "assistant",
+      "content": "\n\nI'm great! 😊 While I don't have feelings like humans do, I'm here and ready to help you with anything you need. How can I assist you today?",
+      "model": "qwen/qwen3-14b",
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": 36,
+        "total_tokens": 36,
+        "tps_est": 0.6617890363616309,
+        "ttfb_ms": 46668,
+        "latency_ms": 54398
+      },
+      "ts": "2025-09-17T11:08:38.225Z"
+    }
+  ]
+}
