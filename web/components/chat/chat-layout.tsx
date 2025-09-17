@@ -478,7 +478,7 @@ export default function ChatLayout() {
                           <div className="h-6 w-6 rounded bg-secondary/60" />
                         ) : (
                           <>
-                            <div className="min-w-0 truncate font-medium">{c.title}</div>
+                            <div className="min-w-0 truncate font-medium font-ui-serif">{c.title}</div>
                             <div className="min-w-0 truncate text-xs text-muted-foreground">{c.model} • {c.updatedAt && new Date(c.updatedAt).toLocaleString()}</div>
                           </>
                         )}

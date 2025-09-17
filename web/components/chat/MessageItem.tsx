@@ -17,9 +17,9 @@ type Props = {
 
 function ThinkingSection({ thinking, thinkingTime }: { thinking: string; thinkingTime?: number }) {
   const [expanded, setExpanded] = useState(false);
-  
+
   return (
-    <div className="mb-3 rounded-lg border border-gray-200 bg-gray-50/50 dark:border-gray-700 dark:bg-gray-800/30">
+    <div className="font-ui-serif mb-3 rounded-lg border border-gray-200 bg-gray-50/50 dark:border-gray-700 dark:bg-gray-800/30">
       <button
         onClick={() => setExpanded(!expanded)}
         className="flex w-full items-center gap-2 p-3 text-left hover:bg-gray-100/50 dark:hover:bg-gray-700/30 rounded-lg transition-colors"
@@ -35,7 +35,7 @@ function ThinkingSection({ thinking, thinkingTime }: { thinking: string; thinkin
       </button>
       {expanded && (
         <div className="px-3 pb-3 border-t border-gray-200 dark:border-gray-700">
-          <div className="text-xs font-mono text-gray-600 dark:text-gray-400 whitespace-pre-wrap break-words max-h-48 overflow-y-auto pt-2">
+          <div className="font-ui-serif text-xs text-gray-600 dark:text-gray-400 whitespace-pre-wrap break-words max-h-48 overflow-y-auto pt-2">
             {thinking}
           </div>
         </div>
@@ -93,7 +93,7 @@ export default function MessageItem({ m, onRegenerate, onEdit, isStreaming = fal
         )}
         
         {isUser ? (
-          <div className="whitespace-pre-wrap text-[15px] leading-7">{m.content}</div>
+          <div className="font-ui-serif whitespace-pre-wrap text-[15px] leading-7">{m.content}</div>
         ) : (
           <Markdown content={m.content} />
         )}

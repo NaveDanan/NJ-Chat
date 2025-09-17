@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 export function Markdown({ content, className }: { content: string; className?: string }) {
   return (
-    <div className={cn("md prose-invert", className)}>
+    <div className={cn("md prose-invert font-ui-serif", className)}>
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[[rehypeHighlight, { ignoreMissing: true }]]}
