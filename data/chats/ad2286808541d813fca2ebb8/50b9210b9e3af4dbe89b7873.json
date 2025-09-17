@@ -6,6 +6,25 @@
   "folder": "",
   "pinned": false,
   "createdAt": "2025-09-17T13:05:40.451Z",
-  "updatedAt": "2025-09-17T13:05:40.451Z",
-  "messages": []
+  "updatedAt": "2025-09-17T13:26:11.138Z",
+  "messages": [
+    {
+      "id": "cfa2a0001cd48139355b971a",
+      "role": "user",
+      "content": "what is your name",
+      "ts": "2025-09-17T13:07:31.417Z"
+    },
+    {
+      "id": "4b8a59bf4d886a51fb40f3eb",
+      "role": "user",
+      "content": "what is your name",
+      "ts": "2025-09-17T13:08:31.544Z"
+    },
+    {
+      "id": "4dfb6414add2e3e0aad427cd",
+      "role": "user",
+      "content": "hello",
+      "ts": "2025-09-17T13:26:11.138Z"
+    }
+  ]
 }

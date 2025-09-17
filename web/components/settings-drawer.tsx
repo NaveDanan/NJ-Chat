@@ -26,6 +26,7 @@ export function SettingsDrawer({ open, onOpenChange, initial }: { open: boolean;
   const [testing, setTesting] = useState(false);
   const [testMessage, setTestMessage] = useState<{ ok: boolean; message: string } | null>(null);
   const previousProvider = useRef(provider);
+  const lastModelsFetchKey = useRef<string | null>(null);
   const providerDefaultBaseUrl = DEFAULT_BASE_URL[(provider as ProviderKey)] || DEFAULT_BASE_URL.openai;
 
   useEffect(() => {
@@ -43,17 +44,6 @@ export function SettingsDrawer({ open, onOpenChange, initial }: { open: boolean;
     }
   }, [initial]);
 
-  useEffect(() => {
-    if (!open) return;
-    (async () => {
-      try {
-        const res = await api("/api/models");
-        setModels(res.models || []);
-      } catch {
-        setModels([]);
-      }
-    })();
-  }, [open]);
 
   useEffect(() => {
     setTestMessage(null);
@@ -76,9 +66,11 @@ export function SettingsDrawer({ open, onOpenChange, initial }: { open: boolean;
 
   useEffect(() => {
     if (!open) return;
-    if (provider !== "ollama") return;
     const normalizedBase = (baseUrl || "").trim() || providerDefaultBaseUrl;
     if (!normalizedBase) return;
+    const currentKey = JSON.stringify({ provider, baseUrl: normalizedBase, apiKey: apiKey || "" });
+    if (lastModelsFetchKey.current === currentKey) return;
+    lastModelsFetchKey.current = currentKey;
     let cancelled = false;
     (async () => {
       try {
@@ -89,17 +81,27 @@ export function SettingsDrawer({ open, onOpenChange, initial }: { open: boolean;
         if (cancelled) return;
         const fetched = res.models || [];
         setModels(fetched);
-        setModel((prev) => prev || fetched[0]?.id || prev);
+        setModel((prev) => {
+          if (prev && fetched.some((m) => m.id === prev)) return prev;
+          return fetched[0]?.id || prev || "";
+        });
       } catch {
         if (!cancelled) {
+          if (lastModelsFetchKey.current === currentKey) {
+            lastModelsFetchKey.current = null;
+          }
           setModels([]);
         }
       }
     })();
     return () => {
       cancelled = true;
+      if (lastModelsFetchKey.current === currentKey) {
+        lastModelsFetchKey.current = null;
+      }
     };
-  }, [provider, baseUrl, apiKey, open, providerDefaultBaseUrl]);
+  }, [open, provider, baseUrl, apiKey, providerDefaultBaseUrl]);
+
 
   async function save() {
     const payload = { provider, baseUrl, apiKey, model, temperature, max_tokens: maxTokens, gradient };
@@ -122,7 +124,10 @@ export function SettingsDrawer({ open, onOpenChange, initial }: { open: boolean;
       });
       const fetched = res.models || [];
       setModels(fetched);
-      setModel((prev) => prev || fetched[0]?.id || prev);
+      setModel((prev) => {
+        if (prev && fetched.some((m) => m.id === prev)) return prev;
+        return fetched[0]?.id || prev || "";
+      });
       const count = fetched.length;
       setTestMessage({ ok: true, message: count ? `Connected. ${count} model${count === 1 ? "" : "s"} available.` : "Connected, but the provider returned no models." });
     } catch (e: any) {

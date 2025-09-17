@@ -360,6 +360,8 @@ async function handleApi(req, res, url) {
       const model = body.model || chat.model || settings.model || '';
       const temperature = body.temperature ?? settings.temperature ?? 0.7;
       const maxTokens = body.max_tokens ?? settings.max_tokens ?? 512;
+      
+      console.log('[DEBUG] Model selection - body.model:', body.model, 'chat.model:', chat.model, 'settings.model:', settings.model, 'final model:', model);
       const contextMessages = db.getMessages(user.id, id);
 
       // Save user message immediately

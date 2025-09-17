@@ -1,0 +1,60 @@
+{
+  "id": "319c7fb099d709fc8ef69519",
+  "title": "<think>",
+  "model": "qwen/qwen3-14b",
+  "system": "",
+  "folder": "",
+  "pinned": false,
+  "createdAt": "2025-09-17T13:35:05.117Z",
+  "updatedAt": "2025-09-17T13:46:00.480Z",
+  "messages": [
+    {
+      "id": "7436baf0e27f16628d8a136f",
+      "role": "user",
+      "content": "hi",
+      "ts": "2025-09-17T13:35:10.056Z"
+    },
+    {
+      "id": "d17588d5c64677018fe9223c",
+      "role": "user",
+      "content": "hello",
+      "ts": "2025-09-17T13:43:37.310Z"
+    },
+    {
+      "id": "dc71c66158df0347dd48261c",
+      "role": "assistant",
+      "content": "",
+      "model": "qwen3:8b",
+      "usage": {
+        "prompt_tokens": 11,
+        "completion_tokens": 100,
+        "total_tokens": 111
+      },
+      "ts": "2025-09-17T13:44:41.350Z"
+    },
+    {
+      "id": "e46228cd064ed07a3291e562",
+      "role": "user",
+      "content": "what is your name",
+      "ts": "2025-09-17T13:45:08.960Z"
+    },
+    {
+      "id": "d1b26637524a469b328004c7",
+      "role": "assistant",
+      "content": "IGemmaaargeageedemaogleIaneneightssistant",
+      "model": "gemma3:12b-it-q8_0",
+      "usage": {
+        "prompt_tokens": 26,
+        "completion_tokens": 30,
+        "total_tokens": 56
+      },
+      "ts": "2025-09-17T13:45:34.483Z"
+    },
+    {
+      "id": "9b7bdfcfe5b09f1b00ee538e",
+      "role": "user",
+      "content": "what is your name now?",
+      "ts": "2025-09-17T13:46:00.480Z"
+    }
+  ]
+}

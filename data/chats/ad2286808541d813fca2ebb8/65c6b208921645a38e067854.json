@@ -1,0 +1,11 @@
+{
+  "id": "65c6b208921645a38e067854",
+  "title": "New Chat",
+  "model": "qwen/qwen3-14b",
+  "system": "",
+  "folder": "",
+  "pinned": false,
+  "createdAt": "2025-09-17T13:26:25.990Z",
+  "updatedAt": "2025-09-17T13:26:25.990Z",
+  "messages": []
+}

@@ -47,7 +47,11 @@ export default function ChatLayout() {
         setTemperature(r?.settings?.temperature ?? 0.7);
         setMaxTokens(r?.settings?.max_tokens ?? 512);
         setGradient(r?.settings?.gradient || "none");
-        await refreshModels();
+        // Set model from user settings first
+        if (r?.settings?.model) {
+          setModel(r.settings.model);
+        }
+        await refreshModels(r);
         await refreshChats(true);
         const c = localStorage.getItem("sidebarCollapsed");
         if (c === "1") setCollapsed(true);
@@ -58,14 +62,31 @@ export default function ChatLayout() {
   }, []);
 
   useEffect(() => {
-    function handler(e: any) {
-      if (e?.detail?.gradient) setGradient(e.detail.gradient);
+    function handleSettingsUpdated(event: any) {
+      const detail = event?.detail || {};
+      setMe((prev: any) => prev ? { ...prev, settings: { ...(prev.settings || {}), ...detail } } : prev);
+      if (typeof detail.gradient === "string") setGradient(detail.gradient);
+      if (typeof detail.temperature === "number") setTemperature(detail.temperature);
+      if (typeof detail.max_tokens === "number") setMaxTokens(detail.max_tokens);
+      if (typeof detail.model === "string") setModel(detail.model);
+      (async () => {
+        try {
+          const res = await api<{ models: { id: string }[] }>("/api/models");
+          const fetched = res.models || [];
+          setModels(fetched);
+          setModel((current) => {
+            if (detail.model && fetched.some((m) => m.id === detail.model)) return detail.model;
+            if (current && fetched.some((m) => m.id === current)) return current;
+            return fetched[0]?.id || current || "";
+          });
+        } catch {}
+      })();
     }
     if (typeof window !== "undefined") {
-      window.addEventListener("settings-updated", handler as any);
-      return () => window.removeEventListener("settings-updated", handler as any);
+      window.addEventListener("settings-updated", handleSettingsUpdated as any);
+      return () => window.removeEventListener("settings-updated", handleSettingsUpdated as any);
     }
-  }, []);
+  }, [setGradient, setTemperature, setMaxTokens, setModel, setModels, setMe]);
 
   // Sidebar resizer
   useEffect(() => {
@@ -96,11 +117,33 @@ export default function ChatLayout() {
     try { localStorage.setItem("sidebarCollapsed", next ? "1" : "0"); } catch {}
   }
 
-  async function refreshModels() {
+  async function refreshModels(userData?: any) {
     try {
       const r = await api<{ models: { id: string }[] }>("/api/models");
-      setModels(r.models || []);
-      if (!model && (me?.settings?.model || r.models?.[0]?.id)) setModel(me?.settings?.model || r.models?.[0]?.id || "");
+      const fetchedModels = r.models || [];
+      setModels(fetchedModels);
+      
+      // Update model selection logic
+      setModel((currentModel) => {
+        // If we have a current model and it's still available, keep it
+        if (currentModel && fetchedModels.some((m) => m.id === currentModel)) {
+          return currentModel;
+        }
+        
+        // If we have user settings model and it's available, use it
+        const userModel = userData?.settings?.model || me?.settings?.model;
+        if (userModel && fetchedModels.some((m) => m.id === userModel)) {
+          return userModel;
+        }
+        
+        // Fall back to first available model if no model is set
+        if (!currentModel && fetchedModels.length > 0) {
+          return fetchedModels[0].id;
+        }
+        
+        // Keep current model even if not in list (user might want to type it manually)
+        return currentModel;
+      });
     } catch {}
   }
 

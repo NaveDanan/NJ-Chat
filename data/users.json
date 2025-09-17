@@ -10,7 +10,7 @@
         "provider": "openai",
         "baseUrl": "http://localhost:1234",
         "apiKey": "lm-studio",
-        "model": "qwen3:14b",
+        "model": "qwen/qwen3-14b",
         "temperature": 0.7,
         "max_tokens": 4096,
         "theme": "system",
