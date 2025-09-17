@@ -6,6 +6,8 @@ import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
 import { cn } from "@/lib/utils";
 
+type CodeProps = React.HTMLAttributes<HTMLElement> & { inline?: boolean };
+
 export function Markdown({ content, className }: { content: string; className?: string }) {
   return (
     <div className={cn("md prose-invert", className)}>
@@ -13,7 +15,7 @@ export function Markdown({ content, className }: { content: string; className?: 
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[[rehypeHighlight, { ignoreMissing: true }]]}
         components={{
-          code({ inline, className, children, ...props }) {
+          code({ inline, className, children, ...props }: CodeProps) {
             const match = /language-(\w+)/.exec(className || "");
             if (inline) return <code className="rounded bg-secondary px-1 py-0.5" {...props}>{children}</code>;
             const lang = match?.[1] || "";

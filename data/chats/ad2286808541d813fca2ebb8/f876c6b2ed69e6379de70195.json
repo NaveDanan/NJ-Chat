@@ -1,0 +1,33 @@
+{
+  "id": "f876c6b2ed69e6379de70195",
+  "title": "hello",
+  "model": "gemma-3-12b",
+  "system": "",
+  "folder": "",
+  "pinned": false,
+  "createdAt": "2025-09-17T11:49:31.149Z",
+  "updatedAt": "2025-09-17T11:50:54.554Z",
+  "messages": [
+    {
+      "id": "667348c0d2f681b9c5448c99",
+      "role": "user",
+      "content": "hello",
+      "ts": "2025-09-17T11:49:57.824Z"
+    },
+    {
+      "id": "212c6b24d1d6bd44e69efa6e",
+      "role": "assistant",
+      "content": "\n\nHello! How can I assist you today?",
+      "model": "qwen/qwen3-14b",
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": 9,
+        "total_tokens": 9,
+        "tps_est": 0.18528049408131753,
+        "ttfb_ms": 47208,
+        "latency_ms": 48575
+      },
+      "ts": "2025-09-17T11:50:46.414Z"
+    }
+  ]
+}
