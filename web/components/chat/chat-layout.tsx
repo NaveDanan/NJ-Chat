@@ -520,7 +520,7 @@ export default function ChatLayout() {
       {/* Main */}
       <main className="flex min-h-0 flex-col">
         <header className="flex flex-wrap items-center gap-2 border-b border-border bg-secondary/30 px-3 py-2">
-          <div className="flex items-center gap-2">
+          {/* <div className="flex items-center gap-2">
             <span className="text-xs text-muted-foreground">Model</span>
             <Select value={model} onValueChange={setModel}>
               <SelectTrigger className="w-[220px]"><SelectValue placeholder="Select model" /></SelectTrigger>
@@ -536,7 +536,7 @@ export default function ChatLayout() {
           <div className="flex items-center gap-2">
             <span className="text-xs text-muted-foreground">Temp</span>
             <Input className="w-20" type="number" min={0} max={2} step={0.1} value={temperature} onChange={(e) => setTemperature(parseFloat(e.target.value || "0.7"))} />
-          </div>
+          </div> */}
           <div className="ml-auto flex items-center gap-2">
             <Button variant="outline" size="sm" onClick={async () => { if (!chatId) return; const r = await api(`/api/chats/${chatId}`); setSystemText(r?.chat?.system || ""); setShowSystem(true); }}>System</Button>
             <Button variant="secondary" size="icon" title="Settings" onClick={() => setShowSettings(true)}><Settings className="h-4 w-4" /></Button>

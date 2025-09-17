@@ -143,7 +143,7 @@ export function SettingsDrawer({ open, onOpenChange, initial }: { open: boolean;
           </Dialog.Description>
           <div className="space-y-3">
             <div>
-              <Label>Provider</Label>
+              <Label className="font-bold">Provider</Label>
               <Select value={provider} onValueChange={setProvider}>
                 <SelectTrigger className="mt-1 bg-background">
                   <SelectValue placeholder="Select provider" />
@@ -155,10 +155,10 @@ export function SettingsDrawer({ open, onOpenChange, initial }: { open: boolean;
               </Select>
             </div>
             <div>
-              <Label>Background Gradient</Label>
+              <Label className="font-bold">Background Gradient</Label>
               <Select value={gradient} onValueChange={setGradient}>
-                <SelectTrigger className="mt-1"><SelectValue placeholder="Gradient" /></SelectTrigger>
-                <SelectContent>
+                <SelectTrigger className="mt-1 bg-background"><SelectValue placeholder="Gradient" /></SelectTrigger>
+                <SelectContent className="mt-1 bg-background">
                   <SelectItem value="none">Solid</SelectItem>
                   <SelectItem value="teal">Teal Beam</SelectItem>
                   <SelectItem value="ocean">Ocean Radial</SelectItem>
@@ -167,14 +167,14 @@ export function SettingsDrawer({ open, onOpenChange, initial }: { open: boolean;
               </Select>
             </div>
             <div>
-              <Label>Base URL</Label>
+              <Label className="font-bold">Base URL</Label>
               <Input className="mt-1" placeholder={providerDefaultBaseUrl} value={baseUrl} onChange={(e) => setBaseUrl(e.target.value)} />
             </div>
             <div>
-              <Label>API Key</Label>
+              <Label className="font-bold">API Key</Label>
               <Input className="mt-1" placeholder="sk-... or lm-studio" value={apiKey} onChange={(e) => setApiKey(e.target.value)} />
             </div>
-            <div className="flex items-center justify-between gap-3">
+            <div className="flex items-center justify-between gap-3 text-right">
               <Button type="button" variant="outline" onClick={testConnection} disabled={testing}>
                 {testing ? "Testing…" : "Test connection"}
               </Button>
@@ -185,36 +185,21 @@ export function SettingsDrawer({ open, onOpenChange, initial }: { open: boolean;
               )}
             </div>
             <div>
-              <Label>Model</Label>
+              <Label className="font-bold">Model</Label>
                 <Select value={model} onValueChange={setModel}>
-                <SelectTrigger className=""><SelectValue placeholder="Select model" /></SelectTrigger>
-                <SelectContent className="bg-background">
-                  {models.map((m) => <SelectItem key={m.id} value={m.id}>{m.id}</SelectItem>)}
-                </SelectContent>
-              </Select>
-              {models.length > 0 && (
-                <div className="mt-2 flex flex-wrap gap-2">
-                  {models.map((m) => (
-                    <Button
-                      key={m.id}
-                      type="button"
-                      size="sm"
-                      variant={m.id === model ? "secondary" : "outline"}
-                      onClick={() => setModel(m.id)}
-                    >
-                      {m.id}
-                    </Button>
-                  ))}
-                </div>
-              )}
+                  <SelectTrigger className="font-ui-serif"><SelectValue placeholder="openai/" /></SelectTrigger>
+                  <SelectContent className="bg-background font-georgia">
+                    {models.map((m) => <SelectItem key={m.id} value={m.id}>{m.id}</SelectItem>)}
+                  </SelectContent>
+                </Select>
             </div>
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <Label>Temperature</Label>
+                <Label className="font-bold">Temperature</Label>
                 <Input className="mt-1" type="number" min={0} max={2} step={0.1} value={temperature} onChange={(e) => setTemperature(parseFloat(e.target.value || "0.7"))} />
               </div>
               <div>
-                <Label>Max Tokens</Label>
+                <Label className="font-bold">Max Tokens</Label>
                 <Input className="mt-1" type="number" min={64} max={32768} step={64} value={maxTokens} onChange={(e) => setMaxTokens(parseInt(e.target.value || "512"))} />
               </div>
             </div>

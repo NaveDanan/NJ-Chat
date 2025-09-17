@@ -1,0 +1,54 @@
+{
+  "id": "ca1e137ebb615264f3d2ccdf",
+  "title": "Payment Options Available</end_of_turn>",
+  "model": "qwen3:8b",
+  "system": "",
+  "folder": "",
+  "pinned": false,
+  "createdAt": "2025-09-17T13:01:48.990Z",
+  "updatedAt": "2025-09-17T13:03:19.687Z",
+  "messages": [
+    {
+      "id": "e6639092a6cb1cb6b1cc936c",
+      "role": "user",
+      "content": "hello",
+      "ts": "2025-09-17T13:01:53.649Z"
+    },
+    {
+      "id": "9d6369bfae47101ce8557502",
+      "role": "user",
+      "content": "hello",
+      "ts": "2025-09-17T13:02:16.433Z"
+    },
+    {
+      "id": "840d6c7b4ba9d717a0e4b95f",
+      "role": "assistant",
+      "content": "HihereHowelpay",
+      "model": "gemma3:12b-it-qat",
+      "usage": {
+        "prompt_tokens": 30,
+        "completion_tokens": 17,
+        "total_tokens": 47
+      },
+      "ts": "2025-09-17T13:02:34.856Z"
+    },
+    {
+      "id": "ff2c943034fe25441361e305",
+      "role": "user",
+      "content": "what model are you?",
+      "ts": "2025-09-17T13:03:06.802Z"
+    },
+    {
+      "id": "6e0ecb5fdba5d347ace7365b",
+      "role": "assistant",
+      "content": "IGemmaaargeageedemaogleIaneneightswhichwidelybleonee",
+      "model": "gemma3:12b-it-qat",
+      "usage": {
+        "prompt_tokens": 74,
+        "completion_tokens": 49,
+        "total_tokens": 123
+      },
+      "ts": "2025-09-17T13:03:19.687Z"
+    }
+  ]
+}

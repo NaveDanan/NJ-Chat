@@ -1,0 +1,18 @@
+{
+  "id": "22a027ec49863e93d6dbfc9c",
+  "title": "New Chat",
+  "model": "qwen3:8b",
+  "system": "",
+  "folder": "",
+  "pinned": false,
+  "createdAt": "2025-09-17T12:52:30.094Z",
+  "updatedAt": "2025-09-17T12:52:43.585Z",
+  "messages": [
+    {
+      "id": "7baa21a2a7b639c37d8bbe35",
+      "role": "user",
+      "content": "what is your name",
+      "ts": "2025-09-17T12:52:43.585Z"
+    }
+  ]
+}

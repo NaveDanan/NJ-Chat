@@ -80,6 +80,24 @@
       "updatedAt": "2025-09-17T10:21:27.150Z",
       "folder": "",
       "pinned": false
+    },
+    {
+      "id": "22a027ec49863e93d6dbfc9c",
+      "title": "New Chat",
+      "model": "qwen3:8b",
+      "createdAt": "2025-09-17T12:52:30.094Z",
+      "updatedAt": "2025-09-17T12:52:43.585Z",
+      "folder": "",
+      "pinned": false
+    },
+    {
+      "id": "ca1e137ebb615264f3d2ccdf",
+      "title": "Payment Options Available</end_of_turn>",
+      "model": "qwen3:8b",
+      "createdAt": "2025-09-17T13:01:48.990Z",
+      "updatedAt": "2025-09-17T13:03:19.687Z",
+      "folder": "",
+      "pinned": false
     }
   ]
 }
